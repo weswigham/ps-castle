@@ -43,10 +43,6 @@ function tailf($path) {
   Get-Content -Path $path -Wait
 }
 
-function travisDebug($job) {
-  Invoke-WebRequest -Uri https://api.travis-ci.org/job/$job/debug -Headers @{"Content-Type" = "application/json"; "Accept" = "application/json"; "Travis-API-Version" = "3"; "Authorization" = "token JVjtyMePTZuvnsCg5Kc1cw"} -Method Post -Body '{ "quiet": true }'
-}
-
 function Remote($computername){
   if(!$global:credential){
     $global:credential =  Get-Credential
